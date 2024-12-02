@@ -8,13 +8,15 @@ map.setOptions('terrain');
 map.style().set('cursor', 'crosshair');
 map.setCenter(-87.6, 41.8, 6);
 
-// Set markers for each lake
+// Set coordinates for each lake
 var locations = [[-91.764592, 47.931117],
   [-93.818537, 44.189743],
   [-93.41875, 43.902428]];
-  
 var pts = [];
 
+// Draw each coordinate
+var drawingTools = Map.drawingTools();
 for (var l = 0; l < locations.length; l++) {
   pts[l] = ee.Geometry.Point(locations[l]);
+  drawingTools.addLayer(pts[l]);
 }
