@@ -5,7 +5,7 @@ ui.root.widgets().reset([map]);
 // Set visual features for map
 map.setOptions('terrain');
 map.style().set('cursor', 'crosshair');
-map.setCenter(-87.6, 41.8, 6);
+map.setCenter(-93.6, 46.2, 6);
 
 // Set coordinates for each lake
 var locations = [[-91.764592, 47.931117],
@@ -35,9 +35,7 @@ for (var l = 0; l < locations.length; l++) {
 
 // Panel code
 var graph_data = ui.Panel();
-graph_data.style().set({
-  position: 'top-right'
-})
+graph_data.style().set(position: 'top-right');
 graph_data.add(ui.Label({
   value: 'Click on a lake to show its data.'
 }));
@@ -52,7 +50,7 @@ map.onClick(function(coords) {
     if (c_rounded[v][0] == lon_rounded && c_rounded[v][1] == lat_rounded) {
       graph_data.clear();
       graph_data.add(ui.Label({
-        value: 'Data for lake:'
+        value: 'Data for ' + 
       }));
     }
   }
