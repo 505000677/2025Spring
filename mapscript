@@ -8,8 +8,8 @@ map.setOptions('terrain');
 map.style().set('cursor', 'crosshair');
 map.setCenter(-87.6, 41.8, 6);
 
-// Set markers
-const locations = [[-91.764592, 47.931117],
+// Set markers for each lake
+let locations = [[-91.764592, 47.931117],
   [-93.818537, 44.189743],
   [-93.41875, 43.902428]];
 
