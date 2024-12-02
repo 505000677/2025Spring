@@ -19,6 +19,8 @@ for (var l = 0; l < locations.length; l++) {
   map.addLayer(pts[l]);
 }
 
+print(pts);
+
 map.onClick(function(coords) {
   if (pts.includes([coords.lon, coords.lat])) {
     print("You clicked a marker");
