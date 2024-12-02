@@ -16,5 +16,5 @@ var locations = [[-91.764592, 47.931117],
 var pts = [];
 
 for (var l = 0; l < locations.length; l++) {
-  pts[l] = ee.Geometry.Point({map: map, position: locations[l]});
+  pts[l] = ee.Geometry.Point(locations[l][0], locations[l][1]);
 }
