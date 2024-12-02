@@ -28,7 +28,11 @@ map.onClick(function(coords) {
   
   for (var v = 0; v < c_rounded.length; v++) {
     if (c_rounded[v][0] == lon_rounded && c_rounded[v][1] == lat_rounded) {
-      // Placeholder for panel
+      var graph_data = ui.Panel();
+      graph_data.add(ui.Label({
+        value: 'Data for lake:',
+      }));
+
       break;
     }
   }
