@@ -33,6 +33,7 @@ map.onClick(function(coords) {
   
   print([lon_rounded, lat_rounded])
   print(c_rounded)
+  print(c_rounded.indexOf([lon_rounded, lat_rounded]))
   
   if (c_rounded.indexOf([lon_rounded, lat_rounded]) > -1) {
     print("You clicked on a lake! Details coming...");
