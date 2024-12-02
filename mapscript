@@ -31,12 +31,10 @@ map.onClick(function(coords) {
   var lon_rounded = Math.round(coords.lon*10)/10;
   var lat_rounded = Math.round(coords.lat*10)/10;
   
-  print([lon_rounded, lat_rounded])
-  print(c_rounded)
-  print(c_rounded.indexOf([lon_rounded, lat_rounded]))
-  print(c_rounded.indexOf([-93.4,43.9]))
-  
-  if (c_rounded.indexOf([lon_rounded, lat_rounded]) > -1) {
-    print("You clicked on a lake! Details coming...");
+  for (var c in c_rounded) {
+    if (c === [lon_rounded, lat_rounded]) {
+      print("You clicked on a lake! Details coming...");
+      break;
+    }
   }
 })
