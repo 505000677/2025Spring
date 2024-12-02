@@ -21,6 +21,16 @@ for (var l = 0; l < locations.length; l++) {
   c_rounded[l] = [Math.round(locations[l][0]*10)/10, Math.round(locations[l][1]*10)/10]
 }
 
+// Panel code
+var graph_data = ui.Panel();
+graph_data.style().set({
+  position: 'top-right'
+})
+graph_data.add(ui.Label({
+  value: 'Click on a lake to show its data.'
+}));
+map.add(graph_data);
+
 // Click a point
 map.onClick(function(coords) {
   var lon_rounded = Math.round(coords.lon*10)/10;
@@ -28,13 +38,7 @@ map.onClick(function(coords) {
   
   for (var v = 0; v < c_rounded.length; v++) {
     if (c_rounded[v][0] == lon_rounded && c_rounded[v][1] == lat_rounded) {
-      var graph_data = ui.Panel();
-      graph_data.add(ui.Label({
-        value: 'Data for lake:',
-      }));
-      map.remove(graph_data);
-      map.add(graph_data);
-
+      graph_data.clear();
       break;
     }
   }
