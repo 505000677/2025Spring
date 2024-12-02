@@ -14,7 +14,8 @@ var locations = [[-91.764592, 47.931117],
   [-92.477083, 44.211143],
   [-93.168042, 45.060306],
   [-93.039584, 45.081876],
-  [-94.424371, 44.96921]
+  [-94.424371, 44.96921],
+  [-94.436667, 45.275895]
 ];
   
 var names = [
@@ -23,7 +24,9 @@ var names = [
   "Saint Olaf Lake",
   "Zumbro Lake",
   "Valentine Lake",
-  "Birch Lake"
+  "Birch Lake",
+  "Belle Lake",
+  "Clear Lake"
 ];
 
 // Draw each lake coordinate and set click area
