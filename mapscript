@@ -18,5 +18,5 @@ var pts = [];
 var drawingTools = Map.drawingTools();
 for (var l = 0; l < locations.length; l++) {
   pts[l] = ee.Geometry.Point(locations[l]);
-  drawingTools.addLayer(pts[l]);
 }
+drawingTools.addLayer(pts);
