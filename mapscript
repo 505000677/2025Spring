@@ -29,10 +29,10 @@ map.onClick(function(coords) {
   for (var v = 0; v < c_rounded.length; v++) {
     if (c_rounded[v][0] == lon_rounded && c_rounded[v][1] == lat_rounded) {
       var graph_data = ui.Panel();
-      graph_data.clear();
       graph_data.add(ui.Label({
         value: 'Data for lake:',
       }));
+      map.remove(graph_data);
       map.add(graph_data);
 
       break;
