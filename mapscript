@@ -6,4 +6,4 @@ map.setOptions('terrain');
 
 map.style().set('cursor', 'crosshair');
 
-map.setCenter(41.8, -87.6, 4);
+map.setCenter(-87.6, 41.8, 4);
