@@ -1,9 +1,3 @@
-/**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var geometry = /* color: #98ff00 */ee.Geometry.MultiPoint(
-        [[-91.764592, 47.931117],
-         [-93.818537, 44.189743],
-         [-93.41875, 43.902428]]);
-/***** End of imports. If edited, may not auto-convert in the playground. *****/
 // Initialize map
 var map = ui.Map();
 ui.root.widgets().reset([map]);
@@ -19,9 +13,8 @@ var locations = [[-91.764592, 47.931117],
   [-93.41875, 43.902428]];
 
 // Draw each coordinate
-var drawingTools = Map.drawingTools();
 var pts = [];
 for (var l = 0; l < locations.length; l++) {
   pts[l] = ee.Geometry.Point(locations[l]);
+  Map.addLayer(pts[l])
 }
-drawingTools.addLayer(pts);
