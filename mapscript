@@ -4,6 +4,7 @@ ui.root.widgets().reset([map]);
 
 // Set visual features for map
 map.setOptions('terrain');
+map.style().set(cursor: 'crosshair')
 map.setCenter(-93.6, 46.2, 6);
 
 // Set coordinates for each lake
