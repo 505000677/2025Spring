@@ -13,6 +13,6 @@ var locations = [[-91.764592, 47.931117],
   [-93.818537, 44.189743],
   [-93.41875, 43.902428]];
 
-for (var l of locations) {
+for (let l of locations) {
   new AdvancedMarkerElement({map: map, position: l});
 }
