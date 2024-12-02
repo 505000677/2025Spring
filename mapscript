@@ -21,7 +21,8 @@ var names = [
   "Madison Lake",
   "Saint Olaf Lake",
   "Zumbro Lake",
-  
+  "Valentine Lake",
+  "Birch Lake"
 ];
 
 // Draw each coordinate
