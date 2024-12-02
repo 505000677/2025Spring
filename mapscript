@@ -1,5 +1,4 @@
 var map = ui.Map();
-var AdvancedMarkerElement = await google.maps.importLibrary("marker");
 
 ui.root.clear();
 ui.root.add(map);
@@ -13,7 +12,9 @@ map.setCenter(-87.6, 41.8, 6);
 var locations = [[-91.764592, 47.931117],
   [-93.818537, 44.189743],
   [-93.41875, 43.902428]];
+  
+var pts = [];
 
-for (var l in locations) {
-  new AdvancedMarkerElement({map: map, position: l});
+for (var l = 0; l < locations.length; l++) {
+  pts[l] = ee.Geometry.Point({map: map, position: locations[l]});
 }
