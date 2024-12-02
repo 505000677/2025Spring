@@ -19,9 +19,4 @@ for (var l = 0; l < locations.length; l++) {
   map.addLayer(pts[l]);
 }
 
-map.onClick(function(coords) {
-  print(coords)
-  if (pts.indexOf([coords.lon, coords.lat]) > -1) {
-    print("You clicked a marker");
-  }
-})
+drawingTools.addLayer(pts);
