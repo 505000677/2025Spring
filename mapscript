@@ -19,7 +19,19 @@ var locations = [[-91.764592, 47.931117],
 
 // Draw each coordinate
 var pts = [];
+var c_rounded = [];
 for (var l = 0; l < locations.length; l++) {
   pts[l] = ee.Geometry.Point(locations[l]);
   map.addLayer(pts[l]);
+  c_rounded[l] = [Math.round(locations[l][0]*10)/10, Math.round(locations[l][1]*10)/10]
+}
+
+// Click a point
+map.onClick(function(coords)) {
+  lon_rounded = Math.round(coords.lon*10)/10;
+  lat_rounded = Math.round(coords.lat*10)/10;
+  
+  if (c_rounded.indexOf([lon_rounded, lat_rounded]) > -1) {
+    print("You clicked on a lake! Details coming...");
+  }
 }
