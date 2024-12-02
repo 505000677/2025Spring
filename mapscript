@@ -18,3 +18,9 @@ for (var l = 0; l < locations.length; l++) {
   pts[l] = ee.Geometry.Point(locations[l]);
   map.addLayer(pts[l]);
 }
+
+map.onClick(function(coords) {
+  if (pts.includes([coords.lon, coords.lat])) {
+    print("You clicked a marker");
+  }
+})
