@@ -1,4 +1,5 @@
 var map = ui.Map();
+const AdvancedMarkerElement = await google.maps.importLibrary("marker");
 
 ui.root.clear();
 ui.root.add(map);
