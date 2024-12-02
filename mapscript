@@ -1,3 +1,8 @@
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var geometry = /* color: #00ff00 */ee.Geometry.MultiPoint(
+        [[-91.764592, 47.931117],
+         [-92.32011718750002, 43.48937908638723]]);
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
 // Initialize map
 var map = ui.Map();
 ui.root.widgets().reset([map]);
@@ -18,6 +23,3 @@ for (var l = 0; l < locations.length; l++) {
   pts[l] = ee.Geometry.Point(locations[l]);
   map.addLayer(pts[l]);
 }
-
-var drawingTools = Map.drawingTools();
-drawingTools.addLayer(pts);
