@@ -19,4 +19,5 @@ for (var l = 0; l < locations.length; l++) {
   map.addLayer(pts[l]);
 }
 
+var drawingTools = Map.drawingTools();
 drawingTools.addLayer(pts);
