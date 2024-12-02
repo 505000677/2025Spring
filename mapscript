@@ -34,4 +34,4 @@ map.onClick(function(coords) {
   if (c_rounded.indexOf([lon_rounded, lat_rounded]) > -1) {
     print("You clicked on a lake! Details coming...");
   }
-)}
+})
