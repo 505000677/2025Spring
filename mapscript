@@ -1,9 +1,7 @@
 var map = ui.Map();
 
-ui.root.add(map);
-
 map.setOptions('terrain');
 
 map.style().set('cursor', 'crosshair');
 
-map.setCenter(-87.6, 41.8, 4);
+map.setCenter(-87.6, 41.8, 6);
