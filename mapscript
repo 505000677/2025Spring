@@ -13,7 +13,8 @@ var locations = [[-91.764592, 47.931117],
   [-93.41875, 43.902428],
   [-92.477083, 44.211143],
   [-93.168042, 45.060306],
-  [-93.039584, 45.081876]
+  [-93.039584, 45.081876],
+  [-94.424371, 44.96921]
 ];
   
 var names = [
@@ -38,7 +39,7 @@ for (var l = 0; l < locations.length; l++) {
 var graph_data = ui.Panel();
 graph_data.style().set({position: 'top-right'});
 graph_data.add(ui.Label({
-  value: 'Click on a lake to show its data.'
+  value: 'Click on a dot to show data for that lake.'
 }));
 map.add(graph_data);
 
