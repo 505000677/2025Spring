@@ -32,6 +32,7 @@ map.onClick(function(coords) {
       graph_data.add(ui.Label({
         value: 'Data for lake:',
       }));
+      map.add(graph_data);
 
       break;
     }
