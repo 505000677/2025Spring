@@ -10,7 +10,19 @@ map.setCenter(-87.6, 41.8, 6);
 // Set coordinates for each lake
 var locations = [[-91.764592, 47.931117],
   [-93.818537, 44.189743],
-  [-93.41875, 43.902428]];
+  [-93.41875, 43.902428],
+  [-92.477083, 44.211143],
+  [-93.168042, 45.060306],
+  [-93.039584, 45.081876]
+];
+  
+var names = [
+  "Farm Lake",
+  "Madison Lake",
+  "Saint Olaf Lake",
+  "Zumbro Lake",
+  
+];
 
 // Draw each coordinate
 var pts = [];
@@ -37,12 +49,11 @@ map.onClick(function(coords) {
   var lat_rounded = Math.round(coords.lat*10)/10;
   
   for (var v = 0; v < c_rounded.length; v++) {
+    graph_data.clear();
     if (c_rounded[v][0] == lon_rounded && c_rounded[v][1] == lat_rounded) {
-      graph_data.clear();
       graph_data.add(ui.Label({
         value: 'Data for lake:'
       }));
-      break;
     }
   }
 })
