@@ -25,7 +25,7 @@ var names = [
   "Birch Lake"
 ];
 
-// Draw each coordinate
+// Draw each lake coordinate and set click area
 var pts = [];
 var c_rounded = [];
 for (var l = 0; l < locations.length; l++) {
