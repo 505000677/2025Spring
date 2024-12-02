@@ -32,6 +32,7 @@ map.onClick(function(coords) {
   var lat_rounded = Math.round(coords.lat*10)/10;
   
   for (var v = 0; v < c_rounded.length; v++) {
+    print(c_rounded[v]);
     if (c_rounded[v] === [lon_rounded, lat_rounded]) {
       print("You clicked on a lake! Details coming...");
       break;
