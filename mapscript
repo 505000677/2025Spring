@@ -30,12 +30,9 @@ for (var l = 0; l < locations.length; l++) {
 map.onClick(function(coords) {
   var lon_rounded = Math.round(coords.lon*10)/10;
   var lat_rounded = Math.round(coords.lat*10)/10;
-  var values = Object.keys(c_rounded).map(function(key) {
-    return c_rounded[key];
-  })
   
-  for (var c in values) {
-    if (c === [lon_rounded, lat_rounded]) {
+  for (var v = 0; v < c_rounded.length; v++) {
+    if (c_rounded[v] === [lon_rounded, lat_rounded]) {
       print("You clicked on a lake! Details coming...");
       break;
     }
