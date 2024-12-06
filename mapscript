@@ -92,10 +92,10 @@ map.onClick(function(coords) {
       if (["Saint Olaf Lake", "Valentine Lake", "Zumbro Lake", 
           "Lake Josephine"].indexOf(names[v]) >= 0) {
         var name_nospace = names[v].split(" ").join("");
-        var timeseries = ui.Chart(
+        var timeseries = ui.Chart([
           ['<h2>Timeseries Data</h2>'],
           ['<img src=https://raw.githubusercontent.com/anandramakris/googleearth_images/refs/heads/main/'
-            + name_nospace + '.png width=150px>'],
+            + name_nospace + '.png width=150px>']],
           'Table', {allowHtml: true}
         );
         print("Timeseries should be added");
