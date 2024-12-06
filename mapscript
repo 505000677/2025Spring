@@ -91,9 +91,15 @@ map.onClick(function(coords) {
       }));
       if (["Cedar Lake"].indexOf(names[v]) >= 0) {
         var name = names[v].split(" ").join("_")
-        var imageage("projects/infsci-2470-water-quality/assets/"
+        var image = ui.Image("projects/infsci-2470-water-quality/assets/"
           + name);
-        var 
+        var timeseries = ui.Thumbnail({
+          image: image,
+          params: {
+            dimensions: '267x200',
+            format: 'png'
+          },
+        });
         graph_data.add(timeseries);
       }
     }
