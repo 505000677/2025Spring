@@ -91,12 +91,12 @@ map.onClick(function(coords) {
         value: 'Data for ' + names[v] + ":"
       }));
       if (["Cedar Lake"].indexOf(names[v]) >= 0) {
-        var name = names[v].split(" ").join("_")
-        var image = ee.Image("user/AnandRamakris"
-          + name + "_test").visualize({
-            bands:  ['b1', 'b2', 'b3'],
-            min: 0,
-            max: 255
+        var name = names[v].split(" ").join("_");
+        var link = "projects/infsci-2470-water-quality/assets" + name;
+        var image = ee.Image(link).visualize({
+          bands: ['b1', 'b2', 'b3'],
+          min: 0,
+          max: 255
         });
         var timeseries = ui.Thumbnail({
           image: image,
@@ -109,4 +109,3 @@ map.onClick(function(coords) {
       }
     }
   }
-})
