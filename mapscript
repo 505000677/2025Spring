@@ -89,7 +89,12 @@ map.onClick(function(coords) {
       graph_data.add(ui.Label({
         value: 'Data for ' + names[v] + ":"
       }));
-      // Placeholder for uploaded timeseries data
+      if (["Cedar Lake"].indexOf(names[v]) >= 0) {
+        var name = names[v].split(" ").join("_")
+        var timeseries = ee.Image("projects/infsci-2470-water-quality/assets/"
+          + name);
+        graph_data.add(timeseries);
+      }
     }
   }
 })
