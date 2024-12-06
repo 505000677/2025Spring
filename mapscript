@@ -89,8 +89,15 @@ map.onClick(function(coords) {
       graph_data.add(ui.Label({
         value: 'Data for ' + names[v] + ":"
       }));
-      if () {
-        var timeseries = 
+      if (names[v] in ["Saint Olaf Lake", "Valentine Lake", "Zumbro Lake", 
+          "Lake Josephine"]) {
+        var name_nospace = names[v].split(" ").join("");
+        var timeseries = ui.Chart([
+          ['<img src=https://github.com/anandramakris/googleearth_images/blob/main/'
+            + name_nospace + '.png width=150px>'],
+          'Table', {allowHtml: true}
+        ]);
+        graph_data.add(timeseries);
       }
     }
   }
