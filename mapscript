@@ -91,7 +91,7 @@ map.onClick(function(coords) {
       }));
       if (["Cedar Lake"].indexOf(names[v]) >= 0) {
         var name = names[v].split(" ").join("_")
-        var image = ui.Image("projects/infsci-2470-water-quality/assets/"
+        var image = ee.Image("projects/infsci-2470-water-quality/assets/"
           + name).visualize({
             bands:  ['b1', 'b2', 'b3'],
             min: 0,
