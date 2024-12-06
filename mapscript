@@ -101,7 +101,7 @@ map.onClick(function(coords) {
         var timeseries = ui.Thumbnail({
           image: image,
           params: {
-            dimensions: '550x400',
+            dimensions: '470x350',
             format: 'png'
           },
         });
