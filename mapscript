@@ -20,18 +20,6 @@ var locations = [[-91.764592, 47.931117],
   [-93.319372, 44.960499],
   [-92.983589, 44.949718],
   [-93.485506, 44.952972],
-  [-93.062825, 45.003032],
-  [-95.222714, 47.196145],
-  [-89.428153, 45.910417],
-  [-91.478404, 45.85049],
-  [-84.633045, 46.463641],
-  [-95.891413, 46.842054],
-  [-95.907987, 46.774886],
-  [-95.823801, 46.75396],
-  [-92.499769, 45.398475],
-  [-93.039584, 45.081876],
-  [-94.424371, 44.96921],
-  [-94.436667, 45.275895]
 ];
   
 var names = [
@@ -46,19 +34,7 @@ var names = [
   "Beaver Lake",
   "Cedar Lake",
   "Tanners Lake",
-  "Tanager Lake",
-  "Keller Lake",
-  "Elk Lake",
-  "Alma Lake",
-  "Sand Lake",
-  "Spectacle Lake",
-  "Brandy Lake",
-  "Fox Lake",
-  "Abbey Lake",
-  "Deer Lake",
-  "Birch Lake",
-  "Belle Lake",
-  "Clear Lake"
+  "Tanager Lake"
 ];
 
 // Draw each lake coordinate and set click area
@@ -109,3 +85,4 @@ map.onClick(function(coords) {
       }
     }
   }
+}
