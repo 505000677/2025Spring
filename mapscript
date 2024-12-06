@@ -97,7 +97,7 @@ map.onClick(function(coords) {
           ['<img src=https://raw.githubusercontent.com/anandramakris/googleearth_images/refs/heads/main/'
             + name_nospace + '.png width=150px>'],
           'Table', {allowHtml: true}
-        ]);
+        );
         print("Timeseries should be added");
         graph_data.add(timeseries);
       }
