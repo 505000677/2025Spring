@@ -89,7 +89,7 @@ map.onClick(function(coords) {
       graph_data.add(ui.Label({
         value: 'Data for ' + names[v] + ":"
       }));
-      if (["Valentine Lake"].includes(names[v])) {
+      if (["Valentine Lake"].indexOf(names[v]) >= 0) {
         print("You found Valentine Lake");
       }
       if (names[v] in ["Saint Olaf Lake", "Valentine Lake", "Zumbro Lake", 
