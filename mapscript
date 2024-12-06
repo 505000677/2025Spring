@@ -68,7 +68,7 @@ map.onClick(function(coords) {
       }));
       if (["Cedar Lake"].indexOf(names[v]) >= 0) {
         var name = names[v].split(" ").join("_");
-        var link = "user/AnandRamakris/" + name;
+        var link = "users/AnandRamakris/" + name;
         var image = ee.Image(link).visualize({
           bands: ['b1', 'b2', 'b3'],
           min: 0,
