@@ -93,7 +93,6 @@ map.onClick(function(coords) {
           "Lake Josephine"].indexOf(names[v]) >= 0) {
         var name_nospace = names[v].split(" ").join("");
         var timeseries = ui.Chart([
-          ['<h2>Timeseries Data</h2>'],
           ['<img src=https://raw.githubusercontent.com/anandramakris/googleearth_images/refs/heads/main/'
             + name_nospace + '.png width=150px>']],
           'Table', {allowHtml: true}
