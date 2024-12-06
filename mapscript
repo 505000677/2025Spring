@@ -97,6 +97,7 @@ map.onClick(function(coords) {
             + name_nospace + '.png width=150px>'],
           'Table', {allowHtml: true}
         ]);
+        print("Timeseries should be added");
         graph_data.add(timeseries);
       }
     }
