@@ -72,7 +72,7 @@ for (var l = 0; l < locations.length; l++) {
 
 // Panel code
 var graph_data = ui.Panel();
-graph_data.style().set({position: 'top-center'});
+graph_data.style().set({position: 'left-center'});
 graph_data.add(ui.Label({
   value: 'Click on a black dot to show time-series data for that lake. '
     + 'Move the map around with your cursor.'
