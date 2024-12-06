@@ -72,7 +72,7 @@ for (var l = 0; l < locations.length; l++) {
 
 // Panel code
 var graph_data = ui.Panel();
-graph_data.style().set({position: 'top-right'});
+graph_data.style().set({position: 'top'});
 graph_data.add(ui.Label({
   value: 'Click on a dot to show time-series data for that lake.'
 }));
