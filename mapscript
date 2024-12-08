@@ -42,7 +42,7 @@ var pts = [];
 var c_rounded = [];
 for (var l = 0; l < locations.length; l++) {
   pts[l] = ee.Geometry.Point(locations[l]);
-  map.addLayer(pts[l]);
+  map.addLayer(pts[l], {"color": "dd0000");
   c_rounded[l] = [Math.round(locations[l][0]*10)/10, Math.round(locations[l][1]*10)/10]
 }
 
