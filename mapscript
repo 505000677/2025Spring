@@ -52,10 +52,10 @@ var graph_data = ui.Panel({
   style: {width: '300px'}
 });
 graph_data.add(ui.Label({
-  value: 'Click on a black dot to show time-series data for that lake. '
+  value: 'Click on a red dot to show time-series data for that lake. '
     + 'Move the map around with your cursor.'
 }));
-map.add(graph_data);
+ui.root.add(graph_data);
 
 // Click a point
 map.onClick(function(coords) {
