@@ -48,7 +48,7 @@ for (var l = 0; l < locations.length; l++) {
 
 // Panel code
 var graph_data = ui.Panel();
-graph_data.style().set({position: 'top-center'});
+graph_data.style().set({position: 'middle-left'});
 graph_data.add(ui.Label({
   value: 'Click on a black dot to show time-series data for that lake. '
     + 'Move the map around with your cursor.'
@@ -63,26 +63,28 @@ map.onClick(function(coords) {
   for (var v = 0; v < c_rounded.length; v++) {
     if (c_rounded[v][0] == lon_rounded && c_rounded[v][1] == lat_rounded) {
       graph_data.clear();
+      
+      /*
+      // Show data for that point
       graph_data.add(ui.Label({
         value: 'Data for ' + names[v] + ":"
       }));
-      if (["Cedar Lake"].indexOf(names[v]) >= 0) {
-        var name = names[v].split(" ").join("_");
-        var link = "projects/infsci-2470-water-quality/assets/" + name;
-        var image = ee.Image(link).visualize({
-          bands: ['b1', 'b2', 'b3'],
-          min: 0,
-          max: 255
-        });
-        var timeseries = ui.Thumbnail({
-          image: image,
-          params: {
-            dimensions: '505x375',
-            format: 'png'
-          },
-        });
-        graph_data.add(timeseries);
-      }
+      var name = names[v].split(" ").join("_");
+      var link = "projects/infsci-2470-water-quality/assets/" + name;
+      var image = ee.Image(link).visualize({
+        bands: ['b1', 'b2', 'b3'],
+        min: 0,
+        max: 255
+      });
+      var timeseries = ui.Thumbnail({
+        image: image,
+        params: {
+          dimensions: '505x375',
+          format: 'png'
+        },
+      });
+      graph_data.add(timeseries);
+      */
     }
   }
-})
+});
