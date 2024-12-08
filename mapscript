@@ -53,7 +53,7 @@ var graph_data = ui.Panel({
 });
 graph_data.add(ui.Label({
   value: 'Click on a red dot to show time-series data for that lake. '
-    + 'Move the map around with your cursor.'
+    + '\nMove the map around with your cursor.'
 }));
 ui.root.add(graph_data);
 
