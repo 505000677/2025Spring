@@ -8,33 +8,10 @@ map.style().set('cursor', 'crosshair');
 map.setCenter(-93.6, 46.2, 6);
 
 // Set coordinates for each lake
-var locations = [[-91.764592, 47.931117],
-  [-93.818537, 44.189743],
-  [-93.41875, 43.902428],
-  [-92.477083, 44.211143],
-  [-93.168042, 45.060306],
-  [-93.136559, 45.052124],
-  [-93.15506, 45.038351],
-  [-93.052075, 44.982684],
-  [-93.007284, 44.970367],
-  [-93.319372, 44.960499],
-  [-92.983589, 44.949718],
-  [-93.485506, 44.952972],
+var locations = [
 ];
   
 var names = [
-  "Farm Lake",
-  "Madison Lake",
-  "Saint Olaf Lake",
-  "Zumbro Lake",
-  "Valentine Lake",
-  "Island Lake",
-  "Lake Josephine",
-  "Lake Phalen",
-  "Beaver Lake",
-  "Cedar Lake",
-  "Tanners Lake",
-  "Tanager Lake"
 ];
 
 // Draw each lake coordinate and set click area
@@ -46,20 +23,20 @@ for (var l = 0; l < locations.length; l++) {
   c_rounded[l] = [Math.round(locations[l][0]*10)/10, Math.round(locations[l][1]*10)/10]
 }
 
-// Panel code
+// Create panel
 var graph_data = ui.Panel({
   layout: ui.Panel.Layout.flow('vertical'),
   style: {width: '300px'}
 });
 graph_data.add(ui.Label({
-  value: 'Click on a red dot to show time-series data for that lake. '
+  value: 'Click on a red dot to show time-series data for that lake.'
 }));
 graph_data.add(ui.Label({
   value: 'Move the map around by holding and dragging.'
 }));
 ui.root.add(graph_data);
 
-// Click a point
+// Click a point on the map
 map.onClick(function(coords) {
   var lon_rounded = Math.round(coords.lon*10)/10;
   var lat_rounded = Math.round(coords.lat*10)/10;
@@ -68,27 +45,45 @@ map.onClick(function(coords) {
     if (c_rounded[v][0] == lon_rounded && c_rounded[v][1] == lat_rounded) {
       graph_data.clear();
       
-      /*
-      // Show data for that point
-      graph_data.add(ui.Label({
-        value: 'Data for ' + names[v] + ":"
-      }));
       var name = names[v].split(" ").join("_");
-      var link = "projects/infsci-2470-water-quality/assets/" + name;
-      var image = ee.Image(link).visualize({
+      
+      // Show data for the clicked point
+      graph_data.add(ui.Label({
+        value: 'Most recent dissolved oxygen data for ' + names[v] + ":"
+      }));
+      var link_DO = "projects/infsci-2470-water-quality/assets/" + name + "DO";
+      var image_DO = ee.Image(link_DO).visualize({
         bands: ['b1', 'b2', 'b3'],
         min: 0,
         max: 255
       });
-      var timeseries = ui.Thumbnail({
-        image: image,
+      var timeseries_DO = ui.Thumbnail({
+        image: image_DO,
         params: {
           dimensions: '505x375',
           format: 'png'
         },
       });
-      graph_data.add(timeseries);
-      */
+      graph_data.add(timeseries_DO);
+      
+      graph_data.add(ui.Label({
+        value: 'Most recent temperature data for ' + names[v] + ":"
+      }));
+      var link_temp = "projects/infsci-2470-water-quality/assets/"
+          + name + "Temperature";
+      var image_temp = ee.Image(link_temp).visualize({
+        bands: ['b1', 'b2', 'b3'],
+        min: 0,
+        max: 255
+      });
+      var timeseries_temp = ui.Thumbnail({
+        image: image_temp,
+        params: {
+          dimensions: '505x375',
+          format: 'png'
+        },
+      });
+      graph_data.add(timeseries_temp);
     }
   }
 });
