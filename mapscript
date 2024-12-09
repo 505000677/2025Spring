@@ -89,8 +89,8 @@ graph_data.add(ui.Label({
   }
 }));
 graph_data.add(ui.Label({
-  value: 'Click on a red dot to show the most recent predicted dissolved oxygen '
-    + ' and temperature levels for that lake (up until 12/21/2019).'
+  value: 'Click on a red dot to show recent predicted dissolved oxygen '
+    + ' and temperature data for that lake (from 2017 to 2019).'
 }));
 graph_data.add(ui.Label({
   value: 'Move the map around by holding and dragging.'
@@ -110,7 +110,7 @@ map.onClick(function(coords) {
       
       // Show data for the clicked point
       graph_data.add(ui.Label({
-        value: 'Dissolved oxygen data in g/m^3 for ' + names[v]
+        value: 'Predictions for dissolved oxygen levels in g/m^3 for ' + names[v]
           + " (blue = top layer, orange = bottom layer):"
       }));
       var link_DO = "projects/infsci-2470-water-quality/assets/" + name + "DO";
@@ -129,7 +129,7 @@ map.onClick(function(coords) {
       graph_data.add(timeseries_DO);
       
       graph_data.add(ui.Label({
-        value: 'Temperature data for ' + names[v] + ":"
+        value: 'Predictions for temperature levels for ' + names[v] + ":"
       }));
       var link_temp = "projects/infsci-2470-water-quality/assets/"
           + name + "Temperature";
