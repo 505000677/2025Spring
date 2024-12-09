@@ -28,7 +28,8 @@ var locations = [
   [-94.186981, 45.318874],
   [-94.274608, 45.273218],
   [-94.111907, 45.277083],
-  [-91.873948, 46.199876]
+  [-91.873948, 46.199876],
+  [-95.222714, 47.196145]
 ];
   
 var names = [
@@ -51,7 +52,8 @@ var names = [
   "Lake Caroline",
   "Lake Betsy",
   "Pleasant Lake",
-  "Bardon Lake"
+  "Bardon Lake",
+  "Elk Lake"
 ];
 
 // Draw each lake coordinate and set click area
