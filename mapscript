@@ -67,7 +67,7 @@ map.onClick(function(coords) {
     if (c_locations[v][0] == lon_rounded && c_locations[v][1] == lat_rounded) {
       graph_data.clear();
       
-      var name = names[v].split(" ").join("_");
+      var name = names[v].split(" ").join("");
       
       // Show data for the clicked point
       graph_data.add(ui.Label({
