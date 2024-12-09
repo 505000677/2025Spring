@@ -19,12 +19,16 @@ var locations = [
   [-93.15506, 45.038351],
   [-93.062825, 45.003032],
   [-93.007284, 44.970367],
-  [-93.319372, 44.960499],
   [-93.485506, 44.952972],
   [-93.707196, 44.947897],
   [-93.547084, 44.901104],
   [-93.61875, 45.036013],
   [-93.685315, 45.065243],
+  [-94.313839, 45.404624],
+  [-94.186981, 45.318874],
+  [-94.274608, 45.273218],
+  [-94.111907, 45.277083],
+  [-91.873948, 46.199876]
 ];
   
 var names = [
@@ -38,12 +42,16 @@ var names = [
   "Lake Josephine",
   "Keller Lake",
   "Beaver Lake",
-  "Cedar Lake",
   "Tanager Lake",
   "Long Lake",
   "Christmas Lake",
   "Spurzem Lake",
-  "Lake Sarah"
+  "Lake Sarah",
+  "Pearl Lake",
+  "Lake Caroline",
+  "Lake Betsy",
+  "Pleasant Lake",
+  "Bardon Lake"
 ];
 
 // Draw each lake coordinate and set click area
