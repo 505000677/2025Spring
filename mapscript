@@ -58,8 +58,8 @@ ui.root.add(graph_data);
 
 // Click a point on the map
 map.onClick(function(coords) {
-  var lon_rounded = Math.round(coords.lon*100)/100;
-  var lat_rounded = Math.round(coords.lat*100)/100;
+  var lon_rounded = Math.round(coords.lon*10)/10;
+  var lat_rounded = Math.round(coords.lat*10)/10;
   
   print(lon_rounded, lat_rounded);
   
