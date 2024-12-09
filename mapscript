@@ -82,7 +82,7 @@ var graph_data = ui.Panel({
   style: {width: '450px'}
 });
 graph_data.add(ui.Label({
-  value: 'Observed Values of Water Quality Factors in the Northern Midwest',
+  value: 'Predicted Values of Water Quality Factors in the Northern Midwest',
   style: {
     fontSize: '1.5vw',
     fontWeight: 'bold'
