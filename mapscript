@@ -18,6 +18,7 @@ var locations = [
   [-93.136559, 45.052124],
   [-93.15506, 45.038351],
   [-93.062825, 45.003032],
+  [-93.007284, 44.970367]
 ];
   
 var names = [
@@ -30,6 +31,7 @@ var names = [
   "Island Lake",
   "Lake Josephine",
   "Keller Lake",
+  "Beaver Lake"
 ];
 
 // Draw each lake coordinate and set click area
