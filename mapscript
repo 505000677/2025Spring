@@ -89,7 +89,7 @@ graph_data.add(ui.Label({
   }
 }));
 graph_data.add(ui.Label({
-  value: 'Click on a red dot to show the most recent dissolved oxygen '
+  value: 'Click on a red dot to show the most recent predicted dissolved oxygen '
     + ' and temperature levels for that lake (up until 12/21/2019).'
 }));
 graph_data.add(ui.Label({
