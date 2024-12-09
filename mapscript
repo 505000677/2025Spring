@@ -62,7 +62,7 @@ var names = [
   "Elk Lake",
   "Lake Carlos",
   "Mound Lake",
-  "Birch Island",
+  "Birch Island Lake",
   "Turtle Flambeau Flowage"
 ];
 
@@ -110,7 +110,7 @@ map.onClick(function(coords) {
       
       // Show data for the clicked point
       graph_data.add(ui.Label({
-        value: 'Dissolved oxygen data for ' + names[v]
+        value: 'Dissolved oxygen data in g/m^3 for ' + names[v]
           + " (blue = top layer, orange = bottom layer):"
       }));
       var link_DO = "projects/infsci-2470-water-quality/assets/" + name + "DO";
