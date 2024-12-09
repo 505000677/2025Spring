@@ -71,7 +71,8 @@ map.onClick(function(coords) {
       
       // Show data for the clicked point
       graph_data.add(ui.Label({
-        value: 'Dissolved oxygen data for ' + names[v] + ":"
+        value: 'Dissolved oxygen data for ' + names[v]
+          + " (blue = top layer, orange = bottom layer):"
       }));
       var link_DO = "projects/infsci-2470-water-quality/assets/" + name + "DO";
       var image_DO = ee.Image(link_DO).visualize({
