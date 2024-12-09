@@ -47,7 +47,7 @@ for (var l = 0; l < locations.length; l++) {
 // Create panel
 var graph_data = ui.Panel({
   layout: ui.Panel.Layout.flow('vertical'),
-  style: {width: '300px'}
+  style: {width: '375px'}
 });
 graph_data.add(ui.Label({
   value: 'Click on a red dot to show the most recent dissolved oxygen '
