@@ -63,11 +63,10 @@ map.onClick(function(coords) {
   var lon_rounded = Math.round(coords.lon*100)/100;
   var lat_rounded = Math.round(coords.lat*100)/100;
   
-  print(lon_rounded);
-  print(lat_rounded);
-  
   for (var v = 0; v < coords.length; v++) {
     if (coords[v][0] == lon_rounded && coords[v][1] == lat_rounded) {
+      print(coords[v]);
+      
       graph_data.clear();
       
       var name = names[v].split(" ").join("_");
