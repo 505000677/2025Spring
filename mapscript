@@ -9,18 +9,39 @@ map.setCenter(-93.6, 46.2, 6);
 
 // Set coordinates for each lake
 var locations = [
+  [-91.764592, 47.931117],
+  [-93.818537, 44.189743],
+  [-93.41875, 43.902428],
+  [-94.022866, 43.881185],
+  [-92.477083, 44.211143],
+  [-93.168042, 45.060306],
+  [-93.136559, 45.052124],
+  [-93.15506, 45.038351],
+  [-93.062825, 45.003032],
+  [-93.052075, 44.982684]
 ];
   
 var names = [
+  "Garden Lake",
+  "Madison Lake",
+  "Saint Olaf Lake",
+  "Lura Lake",
+  "Zumbro Lake",
+  "Valentine Lake",
+  "Island Lake",
+  "Lake Josephine",
+  "Keller Lake",
+  "Lake Phalen"
 ];
 
 // Draw each lake coordinate and set click area
 var pts = [];
-var c_rounded = [];
+var coords = [];
 for (var l = 0; l < locations.length; l++) {
   pts[l] = ee.Geometry.Point(locations[l]);
   map.addLayer(pts[l], {"color": "dd0000"});
-  c_rounded[l] = [Math.round(locations[l][0]*10)/10, Math.round(locations[l][1]*10)/10]
+  coords[l] = [Math.round(locations[l][0]*100)/100,
+    Math.round(locations[l][1]*100)/100];
 }
 
 // Create panel
@@ -30,7 +51,7 @@ var graph_data = ui.Panel({
 });
 graph_data.add(ui.Label({
   value: 'Click on a red dot to show the most recent dissolved oxygen '
-    + ' and temperature levels for that lake.'
+    + ' and temperature levels for that lake (up until 12/21/2019).'
 }));
 graph_data.add(ui.Label({
   value: 'Move the map around by holding and dragging.'
@@ -39,11 +60,11 @@ ui.root.add(graph_data);
 
 // Click a point on the map
 map.onClick(function(coords) {
-  var lon_rounded = Math.round(coords.lon*10)/10;
-  var lat_rounded = Math.round(coords.lat*10)/10;
+  var lon_rounded = Math.round(coords.lon*100)/100;
+  var lat_rounded = Math.round(coords.lat*100)/100;
   
-  for (var v = 0; v < c_rounded.length; v++) {
-    if (c_rounded[v][0] == lon_rounded && c_rounded[v][1] == lat_rounded) {
+  for (var v = 0; v < coords.length; v++) {
+    if (coords[v][0] == lon_rounded && coords[v][1] == lat_rounded) {
       graph_data.clear();
       
       var name = names[v].split(" ").join("_");
