@@ -36,11 +36,11 @@ var names = [
 
 // Draw each lake coordinate and set click area
 var pts = [];
-var coords = [];
+var c_locations = [];
 for (var l = 0; l < locations.length; l++) {
   pts[l] = ee.Geometry.Point(locations[l]);
   map.addLayer(pts[l], {"color": "dd0000"});
-  coords[l] = [Math.round(locations[l][0]*100)/100,
+  c_locations[l] = [Math.round(locations[l][0]*100)/100,
     Math.round(locations[l][1]*100)/100];
 }
 
@@ -63,11 +63,8 @@ map.onClick(function(coords) {
   var lon_rounded = Math.round(coords.lon*100)/100;
   var lat_rounded = Math.round(coords.lat*100)/100;
   
-  print(lon_rounded, lat_rounded);
-  
-  for (var v = 0; v < coords.length; v++) {
-    print(coords[v]);
-    if (coords[v][0] == lon_rounded && coords[v][1] == lat_rounded) {
+  for (var v = 0; v < c_locations.length; v++) {
+    if (c_locations[v][0] == lon_rounded && c_locations[v][1] == lat_rounded) {
       graph_data.clear();
       
       var name = names[v].split(" ").join("_");
