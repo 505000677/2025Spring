@@ -71,7 +71,7 @@ map.onClick(function(coords) {
       
       // Show data for the clicked point
       graph_data.add(ui.Label({
-        value: 'Most recent dissolved oxygen data for ' + names[v] + ":"
+        value: 'Dissolved oxygen data for ' + names[v] + ":"
       }));
       var link_DO = "projects/infsci-2470-water-quality/assets/" + name + "DO";
       var image_DO = ee.Image(link_DO).visualize({
@@ -89,7 +89,7 @@ map.onClick(function(coords) {
       graph_data.add(timeseries_DO);
       
       graph_data.add(ui.Label({
-        value: 'Most recent temperature data for ' + names[v] + ":"
+        value: 'Temperature data for ' + names[v] + ":"
       }));
       var link_temp = "projects/infsci-2470-water-quality/assets/"
           + name + "Temperature";
