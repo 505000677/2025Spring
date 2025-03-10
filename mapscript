@@ -7,7 +7,7 @@ map.setOptions('terrain');
 map.style().set('cursor', 'crosshair');
 map.setCenter(-93.6, 46.2, 6);
 
-// Set coordinates for each lake
+// Set coordinates and names for each lake
 var locations = [
   [-91.764592, 47.931117],
   [-93.818537, 44.189743],
@@ -36,7 +36,7 @@ var locations = [
   [-92.14076, 45.940795],
   [-90.225682, 46.069294]
 ];
-  
+
 var names = [
   "Garden Lake",
   "Madison Lake",
@@ -66,86 +66,98 @@ var names = [
   "Turtle Flambeau Flowage"
 ];
 
-// Draw each lake coordinate and set click area
+// Draw each lake coordinate on the map
 var pts = [];
-var c_locations = [];
 for (var l = 0; l < locations.length; l++) {
   pts[l] = ee.Geometry.Point(locations[l]);
-  map.addLayer(pts[l], {"color": "dd0000"});
-  c_locations[l] = [Math.round(locations[l][0]*10)/10,
-    Math.round(locations[l][1]*10)/10];
+  map.addLayer(pts[l], {"color": "dd0000"}); // Red dots for lakes
 }
 
-// Create panel
+// Create UI panel
 var graph_data = ui.Panel({
   layout: ui.Panel.Layout.flow('vertical'),
   style: {width: '450px'}
 });
 graph_data.add(ui.Label({
-  value: 'Predicted Values of Water Quality Factors in the Northern Midwest',
+  value: 'Predicted Water Quality Factors in the Northern Midwest',
   style: {
     fontSize: '1.5vw',
     fontWeight: 'bold'
   }
 }));
 graph_data.add(ui.Label({
-  value: 'Click on a red dot to show recent predicted dissolved oxygen '
-    + ' and temperature data for that lake (from 2017 to 2019).'
+  value: 'Click on a red dot to show predicted dissolved oxygen and temperature data for that lake (2017-2019).'
 }));
 graph_data.add(ui.Label({
   value: 'Move the map around by holding and dragging.'
 }));
 ui.root.add(graph_data);
 
-// Click a point on the map
-map.onClick(function(coords) {
-  var lon_rounded = Math.round(coords.lon*10)/10;
-  var lat_rounded = Math.round(coords.lat*10)/10;
-  
-  for (var v = 0; v < c_locations.length; v++) {
-    if (c_locations[v][0] == lon_rounded && c_locations[v][1] == lat_rounded) {
-      graph_data.clear();
-      
-      var name = names[v].split(" ").join("");
-      
-      // Show data for the clicked point
-      graph_data.add(ui.Label({
-        value: 'Predictions for dissolved oxygen levels in g/m^3 for ' + names[v]
-          + " (blue = top layer, orange = bottom layer):"
-      }));
-      var link_DO = "projects/infsci-2470-water-quality/assets/" + name + "DO";
-      var image_DO = ee.Image(link_DO).visualize({
-        bands: ['b1', 'b2', 'b3'],
-        min: 0,
-        max: 255
-      });
-      var timeseries_DO = ui.Thumbnail({
-        image: image_DO,
-        params: {
-          dimensions: '505x375',
-          format: 'png'
-        },
-      });
-      graph_data.add(timeseries_DO);
-      
-      graph_data.add(ui.Label({
-        value: 'Predictions for temperature levels for ' + names[v] + ":"
-      }));
-      var link_temp = "projects/infsci-2470-water-quality/assets/"
-          + name + "Temperature";
-      var image_temp = ee.Image(link_temp).visualize({
-        bands: ['b1', 'b2', 'b3'],
-        min: 0,
-        max: 255
-      });
-      var timeseries_temp = ui.Thumbnail({
-        image: image_temp,
-        params: {
-          dimensions: '505x375',
-          format: 'png'
-        },
-      });
-      graph_data.add(timeseries_temp);
+// Function to find the closest lake
+function findClosestLake(clickedCoords) {
+  var minDist = Infinity;
+  var closestIndex = -1;
+  for (var i = 0; i < locations.length; i++) {
+    var dist = Math.sqrt(
+      Math.pow(locations[i][0] - clickedCoords.lon, 2) +
+      Math.pow(locations[i][1] - clickedCoords.lat, 2)
+    );
+    if (dist < minDist) {
+      minDist = dist;
+      closestIndex = i;
     }
   }
+  return closestIndex;
+}
+
+// Click event for selecting a lake
+map.onClick(function(coords) {
+  var closestLakeIndex = findClosestLake(coords);
+  if (closestLakeIndex === -1) {
+    return;
+  }
+
+  graph_data.clear();
+  
+  var name = names[closestLakeIndex].split(" ").join("");
+  
+  // Display DO predictions
+  graph_data.add(ui.Label({
+    value: 'Predicted dissolved oxygen levels for ' + names[closestLakeIndex]
+          + " (blue = top layer, orange = bottom layer):"
+  }));
+  
+  var link_DO = "projects/infsci-2470-water-quality/assets/" + name + "DO";
+  var image_DO = ee.Image(link_DO).visualize({
+    bands: ['b1', 'b2', 'b3'],
+    min: 0,
+    max: 255
+  });
+  var timeseries_DO = ui.Thumbnail({
+    image: image_DO,
+    params: {
+      dimensions: '505x375',
+      format: 'png'
+    }
+  });
+  graph_data.add(timeseries_DO);
+  
+  // Display temperature predictions
+  graph_data.add(ui.Label({
+    value: 'Predicted temperature levels for ' + names[closestLakeIndex] + ":"
+  }));
+  var link_temp = "projects/infsci-2470-water-quality/assets/" + name + "Temperature";
+  var image_temp = ee.Image(link_temp).visualize({
+    bands: ['b1', 'b2', 'b3'],
+    min: 0,
+    max: 255
+  });
+  var timeseries_temp = ui.Thumbnail({
+    image: image_temp,
+    params: {
+      dimensions: '505x375',
+      format: 'png'
+    }
+  });
+  graph_data.add(timeseries_temp);
 });
